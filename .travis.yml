@@ -4,7 +4,8 @@ python:
   - "2.7"
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get build-dep python-pygame
-install:
-  - pip install 'Pygame == 1.9.1release' --allow-external Pygame --allow-unverified Pygame
+  - sudo apt-get build-dep -qq python-pygame
+  - sudo apt-get install -qq python-pygame
 script: py.test test.py
+virtualenv:
+  system_site_packages: true
