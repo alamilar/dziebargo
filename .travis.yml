@@ -2,6 +2,9 @@ language: python
 python:
   - "2.6"
   - "2.7"
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get build-dep python-pygame 
 install:
   - pip install hg+http://bitbucket.org/pygame/pygame
 script: py.test test.py
