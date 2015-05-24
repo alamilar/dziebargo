@@ -16,11 +16,13 @@ class game():
         self.emptyimage = pygame.image.load('assets/pionekempty.gif')
 
     def init_things(self):
-        self.board = Board(self.boardimage, (self.emptyimage, self.redimage), 2)
+        self.board = Board((self.boardimage, self.screen), (self.emptyimage, self.redimage), 2)
 
     def main_loop(self):
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit()
+            self.board.render()
+            pygame.time.wait(100)
             pygame.display.flip()

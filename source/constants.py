@@ -1,4 +1,4 @@
 __author__ = 'Pawel'
 
 class Player_Colors:
-    Red, Green, Yellow, Blue, Undetermined = range(1,6)
+    Undetermined, Red, Green, Yellow, Blue  = range(0,5)
