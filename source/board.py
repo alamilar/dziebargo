@@ -20,3 +20,10 @@ class Board:
         for row in self.board:
             for field in row:
                 self.screen.blit(self.colors[field.color], field.position)
+
+    def handle_mouse(self, position):
+        for row in self.board:
+            for field in row:
+                if field.rect.collidepoint(position[0], position[1]):
+                    print 'Nacisnieto na pozycji ' + str(field.coords[0]) + ' ' + str(field.coords[1])
+                    field.color = (field.color + 1) % 5
