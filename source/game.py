@@ -4,21 +4,26 @@ from board import Board
 
 
 class game():
-    def __init__(self, size=(600, 600)):
+    def __init__(self, size=(600, 600), players_number=2):
         pygame.init()
         self.screen = pygame.display.set_mode(size)
         self.load_assets()
         self.init_things()
-        self.players = [1, 2]
+        self.players_number = [range(0,players_number)]
 
     def load_assets(self):
         self.boardimage = pygame.image.load('assets/Plansza.bmp').convert()
-        self.redimage = pygame.image.load('assets/pionek.gif')
-        self.greenimage = pygame.image.load('assets/pionek.gif')
-        self.emptyimage = pygame.image.load('assets/pionekempty.gif')
-
+        self.players_ball = (
+            pygame.image.load('assets/pionekempty.gif'),
+            pygame.image.load('assets/ball_red.gif'),
+            pygame.image.load('assets/ball_blue.gif'),
+            pygame.image.load('assets/ball_red.gif'),
+            pygame.image.load('assets/ball_green.gif'),
+            pygame.image.load('assets/ball_yellow.gif')
+        )
+ 
     def init_things(self):
-        self.board = Board((self.boardimage, self.screen), (self.emptyimage, self.redimage, self.greenimage), 2)
+        self.board = Board(self)
 
     def main_loop(self):
 
