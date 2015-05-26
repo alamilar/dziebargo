@@ -9,7 +9,7 @@ class game():
         self.screen = pygame.display.set_mode(size)
         self.load_assets()
         self.init_things()
-        self.players_number = [range(0,players_number)]
+        self.players_number = [range(1,players_number+1)]
 
     def load_assets(self):
         self.boardimage = pygame.image.load('assets/Plansza.bmp').convert()
