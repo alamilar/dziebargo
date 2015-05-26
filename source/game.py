@@ -9,7 +9,8 @@ class game():
         self.screen = pygame.display.set_mode(size)
         self.load_assets()
         self.init_things()
-        self.players_number = [range(1,players_number+1)]
+        self.players_number = players_number
+        self.current_player = 1
 
     def load_assets(self):
         self.boardimage = pygame.image.load('assets/Plansza.bmp').convert()
@@ -17,8 +18,8 @@ class game():
             pygame.image.load('assets/pionekempty.gif'),
             pygame.image.load('assets/ball_red.gif'),
             pygame.image.load('assets/ball_blue.gif'),
-            pygame.image.load('assets/ball_red.gif'),
             pygame.image.load('assets/ball_green.gif'),
+            pygame.image.load('assets/ball_pink.gif'),
             pygame.image.load('assets/ball_yellow.gif')
         )
  

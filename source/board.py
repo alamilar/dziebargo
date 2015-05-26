@@ -27,8 +27,11 @@ class Board:
             for field in row:
                 if field.rect.collidepoint(position[0], position[1]):
                     print 'Nacisnieto na pozycji ' + str(field.coords[0]) + ' ' + str(field.coords[1])
-                    field.color = field.color % 5 +1
-
+                    field.color = self.boardwsk.current_player
+                    self.boardwsk.current_player += 1
+                    if self.boardwsk.current_player > self.boardwsk.players_number:
+                        self.boardwsk.current_player = 1
+                    
     def handle_key(self, key):
     
         if(key==pygame.K_1):
