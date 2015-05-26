@@ -1,4 +1,5 @@
 import pygame
+from Loger import log 
 from constants import Player_Colors
 from field import Field
 
@@ -11,7 +12,7 @@ class Board:
                         ] 
                         for y in range(9)
                 ]
-       
+        log("Map array created")
         self.boardimage = board.boardimage
         self.screen = board.screen
         self.boardwsk = board
@@ -23,17 +24,19 @@ class Board:
                 self.screen.blit(self.boardwsk.players_ball[field.color], field.position)
 
     def handle_mouse(self, position):
+        log("handle mouse: (%s,%s)" % (position[0], position[1]))
         for row in self.board:
             for field in row:
                 if field.rect.collidepoint(position[0], position[1]):
-                    print 'Nacisnieto na pozycji ' + str(field.coords[0]) + ' ' + str(field.coords[1])
+                    log('Mouse colision:' + str(field.coords[0]) + ' ' + str(field.coords[1]))
                     field.color = self.boardwsk.current_player
                     self.boardwsk.current_player += 1
                     if self.boardwsk.current_player > self.boardwsk.players_number:
                         self.boardwsk.current_player = 1
+                        
                     
     def handle_key(self, key):
-    
+        log("handle key: %s" % key)
         if(key==pygame.K_1):
             self.rotate_right(1,1)
         if(key==pygame.K_q):
