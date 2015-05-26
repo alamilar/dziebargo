@@ -38,7 +38,9 @@ class game():
                     pos = pygame.mouse.get_pos()
                     self.board.handle_mouse(pos)
                     print pos
-
+                if event.type == pygame.KEYDOWN:
+                    self.board.handle_key(event.key)
+                    
 
             '''
             Renderowanie
