@@ -22,7 +22,7 @@ class Game(object):
     def load_assets(self):
 
         try:
-            self.boardimage = pygame.image.load('assets/Plansza.bmp').convert()
+            self.boardimage = pygame.image.load('assets/background.bmp').convert()
             self.players_ball = (
                 pygame.image.load('assets/ball_empty.gif'),
                 pygame.image.load('assets/ball_red.gif'),
