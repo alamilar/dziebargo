@@ -3,25 +3,28 @@ import pygame
 from board import Board
 from Loger import log
 
-class game():
+
+class Game(object):
     def __init__(self, size=(600, 600), players_number=2):
         try:
             pygame.init()
             self.screen = pygame.display.set_mode(size)
         except Exception as e:
             log(str(e), "CRIT")
-            raise(Exception)
-        self.load_assets()
-        self.board = Board(self)
+            raise Exception
         self.players_number = players_number
         self.current_player = 1
+        self.boardimage = None
+        self.players_ball = None
+        self.load_assets()
+        self.board = Board(self)
 
     def load_assets(self):
-    
-        try: 
+
+        try:
             self.boardimage = pygame.image.load('assets/Plansza.bmp').convert()
             self.players_ball = (
-                pygame.image.load('assets/pionekempty.gif'),
+                pygame.image.load('assets/ball_empty.gif'),
                 pygame.image.load('assets/ball_red.gif'),
                 pygame.image.load('assets/ball_blue.gif'),
                 pygame.image.load('assets/ball_green.gif'),
@@ -30,8 +33,8 @@ class game():
             )
         except Exception as e:
             log(str(e), "CRIT")
-            raise(Exception)
-                
+            raise Exception
+
     def main_loop(self):
 
         while True:
@@ -46,9 +49,7 @@ class game():
                     self.board.handle_mouse(pos)
                 if event.type == pygame.KEYDOWN:
                     self.board.handle_key(event.key)
-                    
 
-                    
             '''
             Renderowanie
             '''

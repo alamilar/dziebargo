@@ -1,8 +1,8 @@
-from game import game
+from game import Game
 
 
 def main():
-    dziebargo = game()
+    dziebargo = Game()
     dziebargo.main_loop()
 
 
