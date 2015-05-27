@@ -14,12 +14,12 @@ class Board:
             for y in range(9)
             ]
         log("Map array created")
-        self.boardimage = game.boardimage
+        self.board_image = game.board_image
         self.screen = game.screen
         self.game = game
 
     def render(self):
-        self.screen.blit(self.boardimage, (0, 0))
+        self.screen.blit(self.board_image, (0, 0))
         for row in self.board:
             for field in row:
                 self.screen.blit(self.game.players_ball[field.color], field.position)
@@ -29,7 +29,7 @@ class Board:
         for row in self.board:
             for field in row:
                 if field.rect.collidepoint(position[0], position[1]):
-                    log('Mouse colision:' + str(field.coords[0]) + ' ' + str(field.coords[1]))
+                    log('Mouse collision:' + str(field.cords[0]) + ' ' + str(field.cords[1]))
                     field.color = self.game.current_player
                     self.game.current_player += 1
                     if self.game.current_player > self.game.players_number:

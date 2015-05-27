@@ -2,8 +2,8 @@ from game import Game
 
 
 def main():
-    dziebargo = Game()
-    dziebargo.main_loop()
+    game = Game()
+    game.main_loop()
 
 
 if __name__ == '__main__':

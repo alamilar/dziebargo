@@ -6,4 +6,4 @@ class Field:
         self.color = color
         self.position = position
         self.rect = pygame.Rect(position[0], position[1], 50, 50)
-        self.coords = (position[0] / 60, position[1] / 60)
+        self.cords = (position[0] / 60, position[1] / 60)
