@@ -1,4 +1,4 @@
-from source.game import Game
+from source.Game import Game
 
 
 def test_build():

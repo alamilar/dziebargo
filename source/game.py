@@ -1,6 +1,6 @@
 # coding=utf-8
 import pygame
-from board import Board
+from Board import Board
 from Loger import log
 
 

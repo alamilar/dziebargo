@@ -1,7 +1,7 @@
 import pygame
 from Loger import log
-from constants import *
-from field import Field
+from Constants import *
+from Field import Field
 
 
 class Board:
