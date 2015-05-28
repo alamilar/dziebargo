@@ -140,6 +140,7 @@ class Board:
             "-;"+str(y),
             "/;"+str(x-y),
             "\\;"+str(x-y)
+            
         )
 
     def check_if_is_five_in_line(self, line_desc):
