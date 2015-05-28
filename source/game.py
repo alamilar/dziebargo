@@ -1,7 +1,7 @@
 # coding=utf-8
 import pygame
-from Board import Board
-from Loger import log
+from source.board import Board
+from source.Loger import log
 
 
 class Game(object):
