@@ -8,7 +8,7 @@ class Board:
     def __init__(self, game):
         self.board = [
             [
-                Field(Undetermined, (600 / 9 * x + 12, 600 / 9 * y + 12))
+                Field(game.players_ball[0], (600 / 9 * x + 12, 600 / 9 * y + 12))
                 for x in range(9)
                 ]
             for y in range(9)
@@ -22,18 +22,17 @@ class Board:
         self.screen.blit(self.board_image, (0, 0))
         for row in self.board:
             for field in row:
-                self.screen.blit(self.game.players_ball[field.color], field.position)
+                self.screen.blit(field.color, field.position)
 
-    def handle_mouse(self, position):
+    def handle_mouse(self, position, player):
         log("handle mouse: (%s,%s)" % (position[0], position[1]))
         for row in self.board:
             for field in row:
                 if field.rect.collidepoint(position[0], position[1]):
                     log('Mouse collision:' + str(field.cords[0]) + ' ' + str(field.cords[1]))
-                    field.color = self.game.current_player
-                    self.game.current_player += 1
-                    if self.game.current_player > self.game.players_number:
-                        self.game.current_player = 1
+                    field.color = player.color
+                    return True
+        return False
 
     def handle_key(self, key):
         log("handle key: %s" % key)
