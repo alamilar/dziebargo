@@ -1,7 +1,11 @@
+# coding=utf-8
 import pygame
 
 
 class Field:
+    '''
+    Klasa przechowująca dane pola
+    '''
     def __init__(self, color, position):
         self.color = color
         self.position = position

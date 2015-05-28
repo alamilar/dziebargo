@@ -7,6 +7,9 @@ from source.constants import *
 
 
 class Game(object):
+    '''
+    Główna klasa odpowiedzialna za obsługę gry, zawiera obsługę turowości, pomaga ogarniać obiekt Board
+    '''
     def __init__(self, size=(600, 650), players_number=2):
         try:
             pygame.init()
@@ -28,6 +31,11 @@ class Game(object):
         self.board = Board(self)
 
     def setup_players(self, players_number):
+        '''
+        Służy do tworzenia tablicy graczy, i inicjalizacji zmiennych do obsługi tur
+        :param players_number:
+        :return:
+        '''
         self.players_number = players_number
         self.current_player = 1
         self.players = []
@@ -35,6 +43,10 @@ class Game(object):
             self.players.append(Player(_+1, self.players_ball[_+1]))
 
     def load_assets(self):
+        '''
+        Służy do ładowania plików graficznych
+        :return:
+        '''
 
         try:
             self.board_image = pygame.image.load('assets/background.bmp').convert()
@@ -51,11 +63,19 @@ class Game(object):
             raise Exception
 
     def next_player(self):
+        '''
+        Służy do przełączania tury
+        :return:
+        '''
         self.current_player += 1
         if self.current_player > self.players_number:
             self.current_player = 1
 
     def main_loop(self):
+        '''
+        Główna funkcja służąca do obsługi pętli gry
+        :return:
+        '''
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

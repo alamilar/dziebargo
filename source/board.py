@@ -1,3 +1,4 @@
+# coding=utf-8
 import pygame
 from source.Loger import log
 from source.constants import *
@@ -19,12 +20,22 @@ class Board:
         self.game = game
 
     def render(self):
+        '''
+        Funkcja renderująca plansze i pionki
+        :return:
+        '''
         self.screen.blit(self.board_image, (0, 0))
         for row in self.board:
             for field in row:
                 self.screen.blit(field.color, field.position)
 
     def handle_mouse(self, position, player):
+        '''
+        Funkcja do obsługi stawiania pionków
+        :param position:
+        :param player:
+        :return:
+        '''
         log("handle mouse: (%s,%s)" % (position[0], position[1]))
         for row in self.board:
             for field in row:
@@ -35,6 +46,11 @@ class Board:
         return False
 
     def handle_key(self, key):
+        '''
+        Funkcja do obsługi obracania
+        :param key:
+        :return:
+        '''
         log("handle key: %s" % key)
         if key == pygame.K_1:
             self.rotate_right(1, 1)
@@ -82,14 +98,32 @@ class Board:
             self.rotate_left(7, 7)
 
     def rotate_right(self, x, y):
+        '''
+        Funkcja obracająca zadnany blok w prawo
+        :param x:
+        :param y:
+        :return:
+        '''
         for _ in xrange(0, 2):
             self.move_one(x, y)
 
     def rotate_left(self, x, y):
+        '''
+        Funkcja obracająca zadnany blok w lewo
+        :param x:
+        :param y:
+        :return:
+        '''
         for _ in xrange(0, 6):
             self.move_one(x, y)
 
     def move_one(self, x, y):
+        '''
+        Przekształcenia na bloku powodujące przemieszczenie pionków
+        :param x:
+        :param y:
+        :return:
+        '''
         tmp = self.board[x - 1][y - 1].color
         self.board[x - 1][y - 1].color = self.board[x][y - 1].color
         self.board[x][y - 1].color = self.board[x + 1][y - 1].color
