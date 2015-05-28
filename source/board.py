@@ -133,3 +133,26 @@ class Board:
         self.board[x][y + 1].color = self.board[x - 1][y + 1].color
         self.board[x - 1][y + 1].color = self.board[x - 1][y].color
         self.board[x - 1][y].color = tmp
+
+    def lines_with_point(x, y):
+        return (
+            "|;"+str(x),
+            "-;"+str(y),
+            "/;"+str(x-y),
+            "\\;"+str(x-y)
+        )
+
+    def check_if_is_five_in_line(self, line_desc):
+        line = get_line(line_desc)
+
+
+
+    def check_if_five_for_point(self, *points):
+        list_of_linies = {}
+        for point in points:
+            list_of_linies.pop(self.lines_with_point(point))
+        for line in list_of_linies:
+            status = self.check_if_is_five_in_line(line)
+            if status is not None:
+                return status
+        return None

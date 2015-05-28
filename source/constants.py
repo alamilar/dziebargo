@@ -1,2 +1,6 @@
 Undetermined, Red, Green, Yellow, Blue = range(0, 5)
-Beginning, Middle = 1, 2
+
+horizontal_lines = []
+vertical_lines = []
+rising_lines = []
+falling_lines = []
