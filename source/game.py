@@ -10,7 +10,8 @@ class Game(object):
     '''
     Główna klasa odpowiedzialna za obsługę gry, zawiera obsługę turowości, pomaga ogarniać obiekt Board
     '''
-    def __init__(self, size=(600, 650), players_number=2):
+    def __init__(self, players_number,  size=(600, 650)):
+        log("================ NEW RUNME")
         try:
             pygame.init()
             self.screen = pygame.display.set_mode(size)
