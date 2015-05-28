@@ -1,7 +1,7 @@
 # coding=utf-8
 import pygame
 from source.board import Board
-from source.Loger import log
+from source.loger import log
 from source.player import Player
 from source.constants import *
 
