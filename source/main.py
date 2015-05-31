@@ -5,10 +5,10 @@ import constants
 
 def main():
     while True:
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(constants.text_menu)
         input = raw_input()
-        if input not in ('1', '2', '3', '4', 'q'):
+        if input not in ('1', '2', '3', 'q'):
             continue
         if input == 'q':
             break

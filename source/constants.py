@@ -7,8 +7,8 @@ falling_lines = []
 text_menu = """
     Welcome in Game
     press key:
+    1 start game for 2 players
     2 start game for 2 players
-    3 start game for 2 players
     3 start game for 2 players
     q quit
     """

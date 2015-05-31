@@ -4,6 +4,7 @@ from source.board import Board
 from source.loger import log
 from source.player import Player
 from source.constants import *
+import sys
 
 
 class Game(object):
@@ -80,7 +81,7 @@ class Game(object):
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    return
+                    sys.exit(0)
                 if event.type == pygame.MOUSEBUTTONUP and self.tour == Beginning:
                     print 'Gracz numer ' + str(self.current_player)
                     pos = pygame.mouse.get_pos()
