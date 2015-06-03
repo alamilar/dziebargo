@@ -81,13 +81,13 @@ class Game(object):
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    return
+                    pygame.quit()
                 if event.type == pygame.MOUSEBUTTONUP and self.tour == Beginning:
                     print 'Gracz numer ' + str(self.current_player)
                     pos = pygame.mouse.get_pos()
                     if self.board.handle_mouse(pos, self.players[self.current_player-1]):
                         self.tour = Middle
-                if event.type == pygame.KEYDOWN and self.tour == Middle:
+                if event.type == pygame.KEYDOWN and self.tour == Middle and event.key in keys:
                     self.board.handle_key(event.key)
                     print 'Koniec tury gracza ' + str(self.current_player)
                     self.next_player()

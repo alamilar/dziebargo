@@ -1,7 +1,7 @@
 from source.game import Game
-from loger import log
+from source.loger import log
 import os
-import constants
+import source.constants as constants
 
 def main():
     while True:
