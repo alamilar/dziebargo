@@ -22,7 +22,7 @@ class Game(object):
 
 
 
-
+        self.count_of_colored_field = 0
         self.board_image = None
         self.players_ball = None
         self.load_assets()
@@ -93,6 +93,9 @@ class Game(object):
                     print 'Koniec tury gracza ' + str(self.current_player)
                     self.next_player()
                     self.tour = Beginning
+            if self.count_of_colored_field == 81:
+                return "Koniec gry - remis"
+
             self.board.render()
             font = pygame.font.Font(None, 36)
             textpos = pygame.Rect(150, 615, 100, 100)

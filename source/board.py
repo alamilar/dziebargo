@@ -45,6 +45,7 @@ class Board:
                     if field.color != 0:
                         return False
                     field.color = player.number
+                    self.game.count_of_colored_field += 1
                     return True
         return False
 
