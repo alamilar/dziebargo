@@ -82,7 +82,7 @@ class Game(object):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    return
+                    return "End by cross."
                 if event.type == pygame.MOUSEBUTTONUP and self.tour == Beginning:
                     print 'Gracz numer ' + str(self.current_player)
                     pos = pygame.mouse.get_pos()
