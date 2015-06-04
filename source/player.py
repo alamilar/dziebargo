@@ -6,6 +6,5 @@ class Player(object):
     '''
     Klasa przechowująca dane gracza
     '''
-    def __init__(self, number, color):
+    def __init__(self, number):
         self.number = number
-        self.color = color

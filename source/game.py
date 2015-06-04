@@ -42,7 +42,7 @@ class Game(object):
         self.current_player = 1
         self.players = []
         for _ in range(players_number):
-            self.players.append(Player(_+1, self.players_ball[_+1]))
+            self.players.append(Player(_+1))
 
     def load_assets(self):
         '''
@@ -82,6 +82,7 @@ class Game(object):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
+                    return
                 if event.type == pygame.MOUSEBUTTONUP and self.tour == Beginning:
                     print 'Gracz numer ' + str(self.current_player)
                     pos = pygame.mouse.get_pos()
