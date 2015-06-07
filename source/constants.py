@@ -15,7 +15,7 @@ text_menu = """
     q quit
     """
 
-debug = True
+debug = False
 
 keys = [pygame.K_1, pygame.K_2, pygame.K_3 ,pygame.K_4, pygame.K_5, pygame.K_6, pygame.K_7, pygame.K_8 ,pygame.K_9,
         pygame.K_q, pygame.K_w, pygame.K_e, pygame.K_r, pygame.K_t, pygame.K_y, pygame.K_u, pygame.K_i, pygame.K_o  ]

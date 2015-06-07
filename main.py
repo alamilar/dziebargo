@@ -13,13 +13,13 @@ def main():
         if input == 'q':
             break
         game = Game(int(input))
-        game.main_loop()
+        print game.main_loop()
 
 
 if __name__ == '__main__':
     log("============================= NEW RUNME")
     if constants.debug:
-        game = Game(3)
+        game = Game(1)
         game.main_loop()
     else:
         main()
