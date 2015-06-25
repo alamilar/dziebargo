@@ -92,7 +92,7 @@ class Game(object):
                     return "End by cross."
                 if event.type == pygame.MOUSEBUTTONUP and self.tour == BEGINING:
                     self.per_move_flag = True
-                    print 'Gracz numer ' + str(self.current_player)
+                    log('Gracz numer ' + str(self.current_player))
                     pos = pygame.mouse.get_pos()
                     if self.board.handle_mouse(pos, self.players[self.current_player - 1]):
                         self.tour = MIDLE
@@ -100,18 +100,18 @@ class Game(object):
                 if event.type == pygame.KEYDOWN and self.tour == MIDLE and event.key in KEYS:
                     self.per_move_flag = True
                     self.board.handle_key(event.key)
-                    print 'Koniec tury gracza ' + str(self.current_player)
+                    log('Koniec tury gracza ' + str(self.current_player))
                     self.next_player()
                     self.tour = BEGINING
                     self.move_sound.play()
             if self.count_of_colored_field == 81:
                 pygame.quit()
-                return "Koniec gry - remis"
+                return "\nKoniec gry - remis"
             if self.per_move_flag:
                 self.per_move_flag = False
                 if self.check_win():
                     pygame.quit()
-                    return "Koniec gry - wygral: %s " % self.winners
+                    return "\nKoniec gry - wygral: %s " % self.winners
 
             self.board.render()
             font = pygame.font.Font(None, 36)
@@ -211,8 +211,6 @@ class Game(object):
                 prev = poz.color
             if prev == 0:
                 counter = 0
-            if counter:
-                print counter,
             if counter == 4:
                 counter = 0
                 self.winners += str(prev) + " "

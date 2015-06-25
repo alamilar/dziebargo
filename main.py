@@ -15,6 +15,8 @@ def main():
             break
         game = Game(int(user_input))
         print game.main_loop()
+        os.system('pause' if os.name == 'nt' else\
+                      'read -n1 -r -p "Nacisnij enter by kontynuowac..." key')
 
 
 if __name__ == '__main__':
