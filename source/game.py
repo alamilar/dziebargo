@@ -65,6 +65,8 @@ class Game(object):
                 pygame.image.load('assets/ball_pink.gif'),
                 pygame.image.load('assets/ball_yellow.gif')
             )
+            self.press_sound = pygame.mixer.Sound('assets/button.wav')
+            self.move_sound = pygame.mixer.Sound('assets/move.wav')
         except Exception as e:
             log(str(e))
             raise Exception
@@ -94,12 +96,14 @@ class Game(object):
                     pos = pygame.mouse.get_pos()
                     if self.board.handle_mouse(pos, self.players[self.current_player - 1]):
                         self.tour = MIDLE
+                        self.press_sound.play()
                 if event.type == pygame.KEYDOWN and self.tour == MIDLE and event.key in KEYS:
                     self.per_move_flag = True
                     self.board.handle_key(event.key)
                     print 'Koniec tury gracza ' + str(self.current_player)
                     self.next_player()
                     self.tour = BEGINING
+                    self.move_sound.play()
             if self.count_of_colored_field == 81:
                 pygame.quit()
                 return "Koniec gry - remis"
