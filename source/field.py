@@ -1,11 +1,15 @@
 # coding=utf-8
+# pylint: disable=too-few-public-methods
+"""
+class Field
+"""
 import pygame
 
 
-class Field:
-    '''
+class Field(object):
+    """
     Klasa przechowująca dane pola
-    '''
+    """
     def __init__(self, color, position):
         self.color = color
         self.position = position

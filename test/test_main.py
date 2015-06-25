@@ -6,7 +6,7 @@ def test_build():
 
 
 def test_game():
-    x = Game()
+    x = Game(1)
     if x.screen is not None:
         assert True
     else:
